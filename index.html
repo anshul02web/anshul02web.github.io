@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anshul Mishra — Fire02</title>
+
+    <meta
+        name="description"
+        content="Anshul Mishra — also known as Fire. Young Entrepreneur, Gamer, Former Esports Player, Student Creator, Lyricist and AI Music Producer."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            background: #f7f2e9;
+            color: #171311;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        :root {
+            --cream: #f7f2e9;
+            --cream-light: #fffdf8;
+            --red: #9e171d;
+            --red-dark: #6f0e13;
+            --red-light: #c7353b;
+            --black: #171311;
+            --muted: #716a63;
+            --border: rgba(23, 19, 17, 0.1);
+            --white: #ffffff;
+            --shadow: 0 25px 80px rgba(76, 24, 19, 0.12);
+        }
+
+        /* LOADER */
+
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--cream);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .7s ease, visibility .7s ease;
+        }
+
+        .loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-family: Georgia, serif;
+            font-size: 3rem;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .loader-line {
+            width: 100px;
+            height: 2px;
+            background: var(--red);
+            margin: 18px auto;
+            animation: loaderLine 1.2s infinite ease-in-out;
+        }
+
+        @keyframes loaderLine {
+            0%, 100% {
+                transform: scaleX(.3);
+            }
+
+            50% {
+                transform: scaleX(1);
+            }
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            transition: .3s ease;
+        }
+
+        header.scrolled {
+            padding: 13px 5%;
+            background: rgba(247, 242, 233, .88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* FIRE02 BRAND */
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: .85rem;
+            font-weight: 600;
+            color: #4d4742;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .nav-button {
+            padding: 11px 20px;
+            border: 1px solid var(--red);
+            border-radius: 50px;
+            color: var(--red);
+            font-size: .8rem;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .nav-button:hover {
+            background: var(--red);
+            color: white;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 130px 5% 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            right: -250px;
+            top: -200px;
+            background: rgba(158, 23, 29, .08);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            left: -180px;
+            bottom: -150px;
+            background: rgba(158, 23, 29, .06);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            align-items: center;
+            gap: 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 14px;
+            background: rgba(158, 23, 29, .07);
+            border: 1px solid rgba(158, 23, 29, .13);
+            color: var(--red);
+            border-radius: 50px;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: #1b9b4c;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(27,155,76,.12);
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(4rem, 8vw, 7.8rem);
+            line-height: .87;
+            letter-spacing: -6px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 .red {
+            color: var(--red);
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 24px;
+            border-radius: 50px;
+            font-size: .85rem;
+            font-weight: 800;
+            transition: .3s ease;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: white;
+            box-shadow: 0 12px 30px rgba(158,23,29,.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--red-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 18px 35px rgba(158,23,29,.28);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,.55);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--red);
+            color: var(--red);
+            transform: translateY(-3px);
+        }
+
+        /* HERO CARD */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            width: min(400px, 100%);
+            min-height: 500px;
+            background: #fffaf3;
+            border: 1px solid rgba(23,19,17,.08);
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            padding: 18px;
+            position: relative;
+            transform: rotate(2deg);
+            transition: .5s ease;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .profile-image {
+            height: 340px;
+            border-radius: 25px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(158,23,29,.8),
+                    rgba(66,10,13,.95)
+                );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-image::before {
+            content: "Fire.02";
+            font-family: Georgia, serif;
+            color: rgba(255,255,255,.95);
+            font-size: 5rem;
+            font-weight: 600;
+        }
+
+        .profile-image::after {
+            content: "";
+            position: absolute;
+            inset: 20px;
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 18px;
+        }
+
+        .profile-info {
+            padding: 22px 8px 5px;
+        }
+
+        .profile-info h3 {
+            font-family: Georgia, serif;
+            font-size: 1.7rem;
+        }
+
+        .profile-info p {
+            color: var(--muted);
+            font-size: .8rem;
+            margin-top: 5px;
+        }
+
+        .floating-tag {
+            position: absolute;
+            background: white;
+            padding: 11px 15px;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.1);
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--red);
+        }
+
+        .tag-one {
+            top: 80px;
+            right: -35px;
+        }
+
+        .tag-two {
+            bottom: 120px;
+            left: -40px;
+        }
+
+        /* MARQUEE */
+
+        .marquee {
+            background: var(--red);
+            color: white;
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee span {
+            font-family: Georgia, serif;
+            font-size: 1rem;
+            margin: 0 28px;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 120px 5%;
+        }
+
+        .section-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .7rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: Georgia, serif;
+            font-size: clamp(2.8rem,5vw,5rem);
+            letter-spacing: -3px;
+            line-height: .95;
+            max-width: 750px;
+            margin-bottom: 25px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: var(--cream-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .about-highlight {
+            background: var(--red);
+            color: white;
+            border-radius: 30px;
+            padding: 45px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 25px 60px rgba(158,23,29,.2);
+        }
+
+        .about-highlight .quote {
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            line-height: 1.1;
+        }
+
+        .about-highlight small {
+            opacity: .7;
+            letter-spacing: 1px;
+        }
+
+        /* ROLES */
+
+        .roles-grid {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 15px;
+        }
+
+        .role-card {
+            background: var(--cream-light);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: 25px;
+            min-height: 190px;
+            transition: .35s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(158,23,29,.25);
+            box-shadow: 0 20px 45px rgba(0,0,0,.07);
+        }
+
+        .role-icon {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .role-card h3 {
+            font-family: Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .role-card p {
+            color: var(--muted);
+            font-size: .85rem;
+            line-height: 1.6;
+        }
+
+        /* JOURNEY */
+
+        .journey {
+            background: #211817;
+            color: white;
+        }
+
+        .journey .section-description {
+            color: rgba(255,255,255,.55);
+        }
+
+        .timeline {
+            margin-top: 70px;
+            border-left: 1px solid rgba(255,255,255,.15);
+            padding-left: 40px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            background: var(--red-light);
+            border-radius: 50%;
+            left: -46px;
+            top: 5px;
+            box-shadow: 0 0 0 7px rgba(199,53,59,.12);
+        }
+
+        .timeline-year {
+            color: #db6065;
+            font-size: .75rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item h3 {
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: rgba(255,255,255,.55);
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        /* DETAILS */
+
+        .details-grid {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 15px;
+        }
+
+        .detail {
+            padding: 28px;
+            background: var(--cream-light);
+            border-radius: 22px;
+            border: 1px solid var(--border);
+        }
+
+        .detail span {
+            display: block;
+            color: var(--muted);
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 9px;
+        }
+
+        .detail strong {
+            font-family: Georgia, serif;
+            font-size: 1.2rem;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: var(--red);
+            color: white;
+        }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr .8fr;
+            gap: 70px;
+            align-items: end;
+        }
+
+        .contact .section-label {
+            color: #ffb8b8;
+        }
+
+        .contact .section-title {
+            max-width: 800px;
+        }
+
+        .contact-text {
+            color: rgba(255,255,255,.7);
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 17px;
+            transition: .3s;
+        }
+
+        .contact-link:hover {
+            background: white;
+            color: var(--red);
+        }
+
+        .contact-link small {
+            opacity: .6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #150e0d;
+            color: white;
+            padding: 30px 5%;
+        }
+
+        .footer-inner {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        footer p {
+            font-size: .75rem;
+            color: rgba(255,255,255,.45);
+        }
+
+        .footer-logo {
+            font-family: Georgia, serif;
+            font-size: 1.2rem;
+        }
+
+        .footer-logo span {
+            color: #e05257;
+        }
+
+        /* REVEAL */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .nav-links,
+            .nav-button {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 70px;
+                left: 5%;
+                right: 5%;
+                padding: 25px;
+                background: var(--cream-light);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                flex-direction: column;
+                box-shadow: var(--shadow);
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .hero-visual {
+                max-width: 450px;
+                margin: auto;
+                width: 100%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roles-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 85px 5%;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 4.2rem;
+                letter-spacing: -4px;
+            }
+
+            .hero-description {
+                font-size: .95rem;
+            }
+
+            .profile-card {
+                min-height: 430px;
+            }
+
+            .profile-image {
+                height: 290px;
+            }
+
+            .tag-one {
+                right: -10px;
+            }
+
+            .tag-two {
+                left: -10px;
+            }
+
+            .roles-grid,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlight {
+                min-height: 330px;
+                padding: 30px;
+            }
+
+            .about-highlight .quote {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                letter-spacing: -2px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADER -->
+
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">Hey, I am Anshul Mishra</div>
+            <div class="loader-line"></div>
+            <p>Loading portfolio...</p>
+        </div>
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <header id="header">
+
+        <nav class="nav">
+
+            <!-- UPDATED BRAND -->
+            <a href="#home" class="logo">
+                Fire<span>02</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#roles">What I Do</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="nav-button">
+                Let's Connect
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero" id="home">
+
+            <div class="hero-container">
+
+                <div class="hero-content reveal">
+
+                    <div class="eyebrow">
+                        <span class="status-dot"></span>
+                        Founder• AI Music Producer • Student Creator
+                    </div>
+
+                    <h1>
+                        I'm<br>
+                        <span class="red">Anshul</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A young entrepreneur, gamer, former esports player,
+                        student creator, lyricist and AI music producer
+                        exploring ideas where technology, creativity and
+                        culture meet.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#about" class="btn btn-primary">
+                            Discover My Story →
+                        </a>
+
+                        <a href="#contact" class="btn btn-secondary">
+                            Get In Touch
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual reveal">
+
+                    <div class="profile-card">
+
+                        <div class="profile-image"></div>
+
+                        <div class="profile-info">
+                            <h3>Anshul Mishra</h3>
+                            <p>aka Fire • #02 • Creator</p>
+                        </div>
+
+                        <div class="floating-tag tag-one">
+                            🔥 FIRE
+                        </div>
+
+                        <div class="floating-tag tag-two">
+                            02 • Signature
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MARQUEE -->
+
+        <div class="marquee">
+
+            <div class="marquee-track">
+
+                <span>🚀 ENTREPRENEUR</span>
+                <span>🎮 GAMER</span>
+                <span>🏆 ESPORTS</span>
+                <span>🎓 CREATOR</span>
+                <span>🎵 LYRICIST</span>
+                <span>🤖 AI MUSIC</span>
+                <span>🔥 FIRE</span>
+                <span>02</span>
+
+                <span>🚀 ENTREPRENEUR</span>
+                <span>🎮 GAMER</span>
+                <span>🏆 ESPORTS</span>
+                <span>🎓 CREATOR</span>
+                <span>🎵 LYRICIST</span>
+                <span>🤖 AI MUSIC</span>
+                <span>🔥 FIRE</span>
+                <span>02</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <section class="about" id="about">
+
+            <div class="section-container">
+
+                <div class="about-grid">
+
+                    <div class="about-text reveal">
+
+                        <div class="section-label">
+                            01 — About Me
+                        </div>
+
+                        <h2 class="section-title">
+                            More than<br>
+                            just a bio.
+                        </h2>
+
+                        <p>
+                            I'm Anshul Mishra — also known as
+                            <strong>Fire</strong>, with <strong>02</strong>
+                            being my signature number.
+                        </p>
+
+                        <p>
+                            I'm a young creator who enjoys building,
+                            experimenting and turning ideas into something real.
+                        </p>
+
+                        <p>
+                            From gaming and esports to entrepreneurship,
+                            songwriting and AI-powered music, I like exploring
+                            different worlds and finding connections between
+                            technology and creativity.
+                        </p>
+
+                        <p>
+                            I'm still learning, still experimenting and still
+                            building. This website is a snapshot of that journey.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-highlight reveal">
+
+                        <div class="quote">
+                            “Create something that
+                            feels like you.”
+                        </div>
+
+                        <small>
+                            — ANSHUL MISHRA • FIRE02
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ROLES -->
+
+        <section id="roles">
+
+            <div class="section-container">
+
+                <div class="reveal">
+
+                    <div class="section-label">
+                        02 — What I Do
+                    </div>
+
+                    <h2 class="section-title">
+                        Different interests.<br>
+                        One creator.
+                    </h2>
+
+                    <p class="section-description">
+                        My interests span technology, entertainment,
+                        entrepreneurship and music.
+                    </p>
+
+                </div>
+
+
+                <div class="roles-grid">
+
+                    <div class="role-card reveal">
+                        <div class="role-icon">🚀</div>
+                        <h3>Young Entrepreneur</h3>
+                        <p>
+                            Exploring ideas, building projects and learning
+                            how products and businesses come to life.
+                        </p>
+                    </div>
+
+                    <div class="role-card reveal">
+                        <div class="role-icon">🎮</div>
+                        <h3>Gamer</h3>
+                        <p>
+                            Gaming is one of the spaces where I learned
+                            competition, strategy and persistence.
+                        </p>
+                    </div>
+
+                    <div class="role-card reveal">
+                        <div class="role-icon">🏆</div>
+                        <h3>Former Esports Player</h3>
+                        <p>
+                            Experience from competitive gaming and the
+                            discipline that comes with it.
+                        </p>
+                    </div>
+
+                    <div class="role-card reveal">
+                        <div class="role-icon">🎓</div>
+                        <h3>Student Creator</h3>
+                        <p>
+                            Learning while creating projects and documenting
+                            ideas along the way.
+                        </p>
+                    </div>
+
+                    <div class="role-card reveal">
+                        <div class="role-icon">🎵</div>
+                        <h3>Lyricist</h3>
+                        <p>
+                            Writing lyrics and turning thoughts, emotions and
+                            stories into words.
+                        </p>
+                    </div>
+
+                    <div class="role-card reveal">
+                        <div class="role-icon">🤖</div>
+                        <h3>AI Music Producer</h3>
+                        <p>
+                            Experimenting with AI and music to explore new
+                            creative possibilities.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- JOURNEY -->
+
+        <section class="journey" id="journey">
+
+            <div class="section-container">
+
+                <div class="reveal">
+
+                    <div class="section-label">
+                        03 — My Journey
+                    </div>
+
+                    <h2 class="section-title">
+                        Still writing<br>
+                        the story.
+                    </h2>
+
+                    <p class="section-description">
+                        This isn't a finished story. It's a timeline of
+                        experiences, interests and things I'm building.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-year">
+                            CHAPTER 01
+                        </div>
+
+                        <h3>Gaming & Competition</h3>
+
+                        <p>
+                            Gaming became more than entertainment and introduced
+                            me to competition, teamwork, strategy and esports.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-year">
+                            CHAPTER 02
+                        </div>
+
+                        <h3>Creating & Experimenting</h3>
+
+                        <p>
+                            Started exploring creative projects and discovering
+                            how ideas could be turned into something people can
+                            actually experience.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-year">
+                            CHAPTER 03
+                        </div>
+
+                        <h3>Music Meets AI</h3>
+
+                        <p>
+                            Began experimenting with songwriting, lyrics and
+                            AI music production — combining creativity with
+                            emerging technology.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-year">
+                            NOW
+                        </div>
+
+                        <h3>Building What's Next</h3>
+
+                        <p>
+                            Continuing to learn, create, experiment and build
+                            projects around technology, entrepreneurship,
+                            gaming and music.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK FACTS -->
+
+        <section>
+
+            <div class="section-container">
+
+                <div class="reveal">
+
+                    <div class="section-label">
+                        04 — Quick Facts
+                    </div>
+
+                    <h2 class="section-title">
+                        A little more<br>
+                        about me.
+                    </h2>
+
+                </div>
+
+
+                <div class="details-grid">
+
+                    <div class="detail reveal">
+                        <span>Name</span>
+                        <strong>Anshul Mishra</strong>
+                    </div>
+
+                    <div class="detail reveal">
+                        <span>Known As</span>
+                        <strong>Fire</strong>
+                    </div>
+
+                    <div class="detail reveal">
+                        <span>Signature Number</span>
+                        <strong>02</strong>
+                    </div>
+
+                    <div class="detail reveal">
+                        <span>Date of Birth</span>
+                        <strong>22 November 2010</strong>
+                    </div>
+
+                    <div class="detail reveal">
+                        <span>Based In</span>
+                        <strong>India 🇮🇳</strong>
+                    </div>
+
+                    <div class="detail reveal">
+                        <span>Focus</span>
+                        <strong>Technology + Creativity</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact" id="contact">
+
+            <div class="section-container">
+
+                <div class="contact-inner">
+
+                    <div class="reveal">
+
+                        <div class="section-label">
+                            05 — Contact
+                        </div>
+
+                        <h2 class="section-title">
+                            Let's create<br>
+                            something.
+                        </h2>
+
+                        <p class="contact-text">
+                            Interested in collaborating, talking about
+                            technology, gaming, music or creative projects?
+                            Reach out through one of the links.
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-links reveal">
+
+                        <!-- EMAIL -->
+
+                        <a
+                            href="mailto:YOUR_WORK_EMAIL"
+                            class="contact-link"
+                        >
+                            <span>📧 work.iganshul02@gmail.com</span>
+                            <small>↗</small>
+                        </a>
+
+
+                        <!-- PHONE -->
+
+                        <a
+                            href="tel:+91 7051318835"
+                            class="contact-link"
+                        >
+                            <span>📱 Contact</span>
+                            <small>↗</small>
+                        </a>
+
+
+                        <!-- INSTAGRAM -->
+
+                        <a
+                            href="https://instagram.com/igfire02↗"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                        >
+                            <span>◎ Instagram</span>
+                            <small>@igfire02↗</small>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-logo">
+                Fire<span>02</span>
+            </div>
+
+            <p>
+                © <span id="year"></span>
+                Anshul Mishra. Built with curiosity.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* LOADER */
+
+        window.addEventListener("load", () => {
+
+            setTimeout(() => {
+
+                document
+                    .getElementById("loader")
+                    .classList.add("hide");
+
+            }, 700);
+
+        });
+
+
+        /* NAVBAR */
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+        });
+
+
+        /* MOBILE MENU */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+            menuBtn.textContent =
+                navLinks.classList.contains("active")
+                    ? "✕"
+                    : "☰";
+
+        });
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("active");
+
+                    menuBtn.textContent = "☰";
+
+                });
+
+            });
+
+
+        /* SCROLL REVEAL */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: .12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+        /* YEAR */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* HERO PARALLAX */
+
+        const profileCard =
+            document.querySelector(".profile-card");
+
+        document.addEventListener("mousemove", event => {
+
+            if (window.innerWidth < 900) return;
+
+            const x =
+                (window.innerWidth / 2 - event.clientX) / 70;
+
+            const y =
+                (window.innerHeight / 2 - event.clientY) / 70;
+
+            profileCard.style.transform =
+                `rotate(${2 + x * .15}deg)
+                 translate(${x * .3}px, ${y * .3}px)`;
+
+        });
+
+    </script>
+
+</body>
+</html>
