@@ -357,12 +357,15 @@
             object-fit: cover;
             object-position: center;
             display: block;
+            border: none;
+            outline: none;
         }
 
-        .profile-image::after {
-    display: none;
-}
+        /* REMOVE INNER OUTLINE */
 
+        .profile-image::after {
+            content: none;
+        }
 
         .profile-info {
             padding: 22px 8px 5px;
@@ -940,8 +943,12 @@
 
                     <div class="profile-card">
 
+                        <!-- IMAGE -->
                         <div class="profile-image">
-                            <img src="./anshul.jpeg" alt="Anshul Mishra">
+                            <img
+                                src="./anshul.jpeg"
+                                alt="Anshul Mishra"
+                            >
                         </div>
 
                         <div class="profile-info">
